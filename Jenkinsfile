@@ -8,6 +8,9 @@ pipeline {
     }
 
     stage('tests') {
+      environment {
+        DOCKER_HOST = '/var/run/docker.sock'
+      }
       steps {
         sh './mvnw clean test'
       }
