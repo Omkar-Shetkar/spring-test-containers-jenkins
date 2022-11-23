@@ -10,6 +10,9 @@ import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 import org.testcontainers.utility.DockerImageName;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @SpringBootTest
 @Testcontainers
 public class RepositoryTest {
@@ -31,8 +34,10 @@ public class RepositoryTest {
 
     @Test
     public void testCity() {
-        City city = new City("Bangalore");
-        cityRepository.save(city);
+        List<City> cities = new ArrayList<>();
+        cities.add(new City("Bangalore"));
+        cities.add(new City("Mysore"));
+        cityRepository.saveAll(cities);
 
         cityRepository.findAll().forEach(System.out::println);
     }
