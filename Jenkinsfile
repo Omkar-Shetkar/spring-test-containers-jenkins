@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-        git(url: 'git@github.com:Omkar-Shetkar/spring-test-containers-jenkins.git', branch: 'main')
+        git(url: 'https://github.com/Omkar-Shetkar/spring-test-containers-jenkins/branches', branch: 'main')
       }
     }
 
